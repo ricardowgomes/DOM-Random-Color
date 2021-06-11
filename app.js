@@ -3,7 +3,6 @@ const h2 = document.querySelector('h2');
 
 button.addEventListener('click', () => {
   const newColor = randomColor()
-  console.log(newColor)
   button.style.backgroundColor = newColor[2];
   document.getElementById('random-color').style.color = newColor[1]
   document.body.style.backgroundColor = newColor[0];
@@ -22,4 +21,14 @@ const randomColor = () => {
   arr.push(newColor, newColorDark, newColorLight)
 
   return arr
+}
+
+const buttons = document.querySelectorAll('button');
+
+for (let button of buttons) {
+  const newColor = randomColor()
+  button.style.backgroundColor = newColor[2]
+  button.addEventListener("click", () => {
+    button.style.color = newColor[1]
+  })
 }
